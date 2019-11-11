@@ -4,6 +4,7 @@ using System.Net;
 using System.Threading.Tasks;
 using API.CoinDesk;
 using API.Models;
+using Consumer.Tests.Utils;
 using PactNet.Mocks.MockHttpService;
 using PactNet.Mocks.MockHttpService.Models;
 using Xunit;
