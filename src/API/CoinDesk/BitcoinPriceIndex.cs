@@ -6,6 +6,6 @@ namespace API.CoinDesk
         public string symbol { get; set; }
         public string rate { get; set; }
         public string description { get; set; }
-        public float rate_float { get; set; }
+        public double rate_float { get; set; }
     }
 }
