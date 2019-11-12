@@ -71,14 +71,26 @@ namespace Consumer.Tests
                         { "Content-Type", "application/json; charset=utf-8" }
                     },
                     Status = (int) HttpStatusCode.OK,
-                    Body = new PriceIndexResponse
+                    Body = new 
                     {
-                        LastUpdatedIso =  "Nov 11, 2019 at 22:12 GMT",
-                        PriceIndexes = new List<PriceIndex>()
+                        lastUpdatedIso =  "Nov 11, 2019 at 22:12 GMT",
+                        priceIndexes = new []
                         {
-                             new PriceIndex("USD","&#36;",8739.3483),
-                             new PriceIndex( "GBP","&pound;",6799.1343),
-                             new PriceIndex("EUR","&euro;", 7920.6637)
+                            new {
+                                code = "EUR",
+                                symbol = "&euro;",
+                                rate = 7920.6637,
+                            },
+                            new {
+                                code = "GBP",
+                                symbol = "&pound;",
+                                rate = 6799.1343,
+                            },
+                            new {
+                                code = "USD",
+                                symbol = "&#36;",
+                                rate = 8739.3483,
+                            }
                         }
                     }
                 }); 

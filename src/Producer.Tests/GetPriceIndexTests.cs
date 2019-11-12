@@ -1,9 +1,9 @@
 using System;
 using System.Collections.Generic;
+using System.Net.Http;
 using System.Threading.Tasks;
 using API;
 using API.CoinDesk;
-using API.Models;
 using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
@@ -14,8 +14,13 @@ using Xunit.Abstractions;
 
 namespace Producer.Tests
 {
-    internal class CoinDeskServiceStub : ICoinDeskService
+    public class CoinDeskServiceStub : ICoinDeskService
     {
+        public CoinDeskServiceStub(HttpClient client)
+        {
+            
+        }
+        
         public Task<CoinDeskResponse> GetBitcoinPriceIndex()
         {
             return Task.FromResult(new CoinDeskResponse
@@ -33,6 +38,7 @@ namespace Producer.Tests
             });
         }
     }
+    
     public class GetPriceIndexTests: IDisposable
     {
         private bool _disposedValue; // To detect redundant calls

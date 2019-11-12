@@ -18,7 +18,7 @@ namespace API.Controllers
             _coinDeskService = coinDeskService;
         }
 
-        [HttpGet]
+        [HttpGet("{cryptocurrency}")]
         public async Task<ActionResult<PriceIndexResponse>> Get(string cryptocurrency)
         {
             try
