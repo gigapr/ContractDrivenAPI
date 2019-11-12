@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using API.CoinDesk;
 using Newtonsoft.Json;
 
-namespace Consumer.Tests
+namespace Consumer.Tests.Utils
 {
     internal class TestWebClient
     {

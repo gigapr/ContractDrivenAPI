@@ -18,15 +18,15 @@ namespace API.Controllers
             _coinDeskService = coinDeskService;
         }
 
-        [HttpGet]
+        [HttpGet("{cryptocurrency}")]
         public async Task<ActionResult<PriceIndexResponse>> Get(string cryptocurrency)
         {
             try
-            {
-                switch (cryptocurrency)
+            {                    
+                switch (cryptocurrency.ToLower())
                 {
                     case "bitcoin":
-                        return PriceIndexResponseMapper.Map(await _coinDeskService.GetBitcoinPriceIndex());
+                        return Ok(PriceIndexResponseMapper.Map(await _coinDeskService.GetBitcoinPriceIndex()));
                     default:
                         return StatusCode((int) HttpStatusCode.NotFound, $"'{cryptocurrency}' is not a supported cryptocurrency. Supported cryptocurrencies are ['bitcoin']");
                 }
